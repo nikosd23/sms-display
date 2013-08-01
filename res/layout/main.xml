@@ -1,40 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:orientation="vertical"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent"
-		>
-	<TextView
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="New Message:"
-			/>
-	<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text=".."
-			android:id="@+id/textView" android:layout_gravity="center"/>
-	<Button
-			android:layout_width="160dp"
-			android:layout_height="wrap_content"
-			android:text="Check Inbox"
-			android:id="@+id/button" android:layout_gravity="left|center_vertical"
-			android:onClick="checkInbox"/>
-	<Button
-			android:layout_width="160dp"
-			android:layout_height="wrap_content"
-			android:text="Clean Inbox"
-			android:id="@+id/button1" android:layout_gravity="left|center_vertical"
-			android:onClick="cleanInbox"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rl1"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Inbox"
-			android:id="@+id/textView1" android:layout_gravity="left|center_vertical"/>
+			android:id="@+id/textView1" android:layout_centerHorizontal="true"/>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="200px"
+                android:layout_below="@id/textView1"
+                android:id="@+id/scrollView">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/scrollView"
+                android:id="@+id/textView3" android:layout_centerHorizontal="true"/>
+    </ScrollView>
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+            android:layout_below="@id/scrollView"
 			android:id="@+id/listView" android:layout_gravity="left|center_vertical"/>
+    <Switch
+            android:id="@+id/sw1"
+            android:text="Send SMS"
+            android:checked="false"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_below="@id/listView"
+            android:layout_marginBottom="32dip" android:layout_centerHorizontal="true"/>
 
-</LinearLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/rl2" android:layout_width="match_parent"
+                    android:layout_height="0px" android:orientation="horizontal"
+                    android:layout_below="@id/sw1">
+        <TextView
+                android:id="@+id/edit_message11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+                android:text="Enter the phone number of recipient:"
+                android:layout_below="@id/rl2"/>
+        <EditText
+                android:id="@+id/edit_message4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_message11" android:layout_centerHorizontal="true"/>
+        <TextView
+                android:id="@+id/edit_message5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message:"
+                android:layout_below="@id/edit_message4" android:layout_centerHorizontal="true"/>
+        <EditText
+                android:id="@+id/edit_message6"
+                android:layout_width="fill_parent"
+                android:layout_height="150px"
+                android:layout_below="@id/edit_message5" android:layout_centerHorizontal="true"/>
+        <Button
+                android:id="@+id/btnSendSMS"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_message6"
+                android:onClick="sendSMS"
+                android:text="Send SMS"/>
+    </RelativeLayout>
+
+</RelativeLayout>
 
